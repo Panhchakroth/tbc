@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Navbar Template · Bootstrap v5.2</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="assets/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --color-yellow: #fbdb02;
+            --color-blue: #1d1d5c;
+            --color-red: #e64850;
+            --color-light-golden: goldenrod;
+        }
+        @font-face{
+          font-family: KantumruyPro-Regular;
+          src: url(assets/fonts/static/KantumruyPro-Regular.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Bold;
+          src: url(assets/fonts/static/KantumruyPro-Bold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-SemiBold;
+          src: url(assets/fonts/static/KantumruyPro-SemiBold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Light;
+          src: url(assets/fonts/static/KantumruyPro-Light.ttf);
+        }
+        body{
+            font-family: 'KantumruyPro-Regular';
+            color: var(--color-blue);
+        }
+        b, th, .fw-bold{
+          font-family: 'KantumruyPro-Bold';
+        }
+        .bg-color-blue{
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 991.98px){
+        .navbarsTop {
+            display: none;
+        }
+      }
+    </style>
+
+<style>
+    .carousel-caption{
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px 30px;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+  </style>
+
+  <style>
+.form-check-input:checked + .form-checked-content {
+  opacity: .5;
+}
+
+.form-check-input-placeholder {
+  border-style: dashed;
+}
+[contenteditable]:focus {
+  outline: 0;
+}
+
+.list-group-checkable .list-group-item {
+  cursor: pointer;
+  width: 100%;
+}
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.list-group-item-check:hover + .list-group-item {
+  background-color: var(--bs-light);
+}
+.list-group-item-check:checked + .list-group-item {
+  color: #fff;
+  background-color: var(--bs-blue);
+}
+.list-group-item-check[disabled] + .list-group-item,
+.list-group-item-check:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+
+.list-group-radio .list-group-item {
+  cursor: pointer;
+}
+.list-group-radio .form-check-input {
+  z-index: 2;
+  margin-top: -.5em;
+}
+.list-group-radio .list-group-item:hover,
+.list-group-radio .list-group-item:focus {
+  background-color: var(--bs-light);
+}
+
+.list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: var(--bs-body);
+  border-color: var(--bs-blue);
+  box-shadow: 0 0 0 2px var(--bs-blue);
+}
+.list-group-radio .form-check-input[disabled] + .list-group-item,
+.list-group-radio .form-check-input:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+}
+#offcanvasNavbar2 .offcanvas-body{
+  height: 70px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a{
+  align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover{
+  color: var(--color-light-golden);
+  background-color: var(--color-blue);
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover ~ ul, #offcanvasNavbar2 .offcanvas-body ul li ul:hover, #offcanvasNavbar2 .offcanvas-body ul li ul:focus{
+  display: block;
+  background: white;
+  border-radius: 0;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a.active{
+  border-bottom: 2px solid var(--color-blue);
+}
+  </style>
+
+<style>
+  .zoom {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'KantumruyPro-Bold';
+    font-weight: bold;
+  }
+  @media (max-width: 991.98px){
+        #offcanvasNavbar2{
+          background-color: var(--color-blue);
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-header{
+          color: white;
+          border-bottom: 1px solid var(--color-light-golden);
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a{
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a.active, #offcanvasNavbar2 .offcanvas-body ul li a:active{
+          color: var(--color-light-golden);
+          background-color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li ul li a{
+          color: var(--color-blue);
+        }
+      }
+  </style>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/navbar.css" rel="stylesheet">
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarsTop" aria-label="Offcanvas navbar large" style="font-size: 90%;">
+            <div class="container">
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar1" aria-labelledby="offcanvasNavbar1Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar1Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> (097) 987-3530</a>    
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ភាសា
+                      </a>
+                      <ul class="dropdown-menu" style="z-index: 1021;">
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/cambodia.png" width="20px" alt=""> ខ្មែរ</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/united-kingdom.png" width="20px" alt=""> English</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/china.png" width="20px" alt=""> Chinese</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        
+          <nav class="navbar navbar-expand-lg bg-white sticky-top p-0" aria-label="Offcanvas navbar large">
+            <div class="container">
+              <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="height: 70px;">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="products.html">ទិញ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ជួល</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ខុនដូ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">បុរី</a>
+                    </li>                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">គម្រោងថ្មីៗ</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                      </a> -->
+                      <a class="nav-link dropdown-toggle" href="#">ផ្សេងៗ</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="aboutUs.html">អំពី​ពួក​យើង</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+    
+<div class="py-3 bg-light"></div>
+<main>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 mb-3">
+                <h3>Borey Kasen Phnom Penh បុរី ខាសិនភ្នំពេញ</h3>
+                <small>កាលបរិច្ឆេទប្រកាស៖ 12/08/2023</small> <small class="ms-3">ប្លង់៖ ប្លង់ទន់</small>
+                <small class="ms-3">ប្រភេទអចលនទ្រព្យ៖ Twin Villa</small>
+                <small class="ms-3">ID អចលនទ្រព្យ៖ <span class="badge bg-success fw-bold">233773</span></small>
+            </div>
+        </div>
+        <div class="row">
+            
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/1.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/2.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/3.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/4.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/5.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/6.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/7.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/8.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/9.jpeg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-3 col-md-4 col-2 mb-3">
+                <img src="assets/images/product1/10.jpeg" class="img-fluid" alt="">
+            </div>
+            <br>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <br>
+                <p>សូមថ្លែងអំណរគុណដល់អតិថិជនជាទីស្រលាញ់ ដែលបានអញ្ជើញមកសាកសួរព័ត៌មានផ្ទាល់នៅ ការិយាល័យលក់របស់ បុរី ខាសិន ភ្នំពេញ ព្រមទាំងធ្វើការកក់ជាបន្តបន្ទាប់។</p>
+                <p>ក្រុមការងារយើង រីករាយជានិច្ច ក្នុងការផ្តល់ព័ត៌មាននានា អំពីលំនៅឋាន និងការប្រឹក្សាយោបល់ផ្នែកបង់ប្រាក់ ដែលមានជាច្រើនជម្រើស សម្រាប់លោកអ្នក។</p>
+                <p>សម្រាប់ព័ត៌មានបន្ថែម សូមអញ្ជើញមកកាន់ការិយាល័យលក់ របស់បុរី ខាសិន ភ្នំពេញ</p>
+                <br>
+                <p>016 666 098 | 090 510 999 | 061 510 999</p>
+                <p>Telegram: <a href="https://t.me/Borey_Kasen">https://t.me/Borey_Kasen</a></p>
+                <br>
+                <div>
+                    ទីតាំង៖ លើបណ្ដោយផ្លូវជាតិលេខ ០៣ ចម្ងាយប្រមាណ ០៥នាទី ពីអាកាសយានដ្ឋានអន្តរជាតិភ្នំពេញ 
+                    <a href="https://bit.ly/BKPPLocation">https://bit.ly/BKPPLocation</a>
+
+                    <br>
+                    <h6 class="mt-3">ទីតាំងក្បែរៗ</div>
+                    <div class="w-100">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.6182340423634!2d104.8187093!3d11.5074387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31094f88fc96ac87%3A0xc5cb4777ab194e2e!2z4Z6U4Z674Z6a4Z64IOGegeGetuGen-Get-GekyDhnpfhn5LhnpPhn4bhnpbhn4HhnoktQm9yZXkgS2FzZW4gUGhub20gUGVuaA!5e0!3m2!1sen!2skh!4v1693713878974!5m2!1sen!2skh" width="100%" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</main>
+
+<div class="py-5 bg-light"></div>
+
+<footer class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt="">
+        <small class="d-block mb-3 text-muted"></small>
+        <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <br>
+        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+    <script src="assets/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

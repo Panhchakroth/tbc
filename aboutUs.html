@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Navbar Template · Bootstrap v5.2</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="assets/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --color-yellow: #fbdb02;
+            --color-blue: #1d1d5c;
+            --color-red: #e64850;
+            --color-light-golden: goldenrod;
+        }
+        @font-face{
+          font-family: KantumruyPro-Regular;
+          src: url(assets/fonts/static/KantumruyPro-Regular.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Bold;
+          src: url(assets/fonts/static/KantumruyPro-Bold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-SemiBold;
+          src: url(assets/fonts/static/KantumruyPro-SemiBold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Light;
+          src: url(assets/fonts/static/KantumruyPro-Light.ttf);
+        }
+        body{
+            font-family: 'KantumruyPro-Regular';
+            color: var(--color-blue);
+        }
+        b, th, .fw-bold{
+          font-family: 'KantumruyPro-Bold';
+        }
+        .bg-color-blue{
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 991.98px){
+        .navbarsTop {
+            display: none;
+        }
+      }
+    </style>
+
+<style>
+    .carousel-caption{
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px 30px;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+  </style>
+
+  <style>
+.form-check-input:checked + .form-checked-content {
+  opacity: .5;
+}
+
+.form-check-input-placeholder {
+  border-style: dashed;
+}
+[contenteditable]:focus {
+  outline: 0;
+}
+
+.list-group-checkable .list-group-item {
+  cursor: pointer;
+  width: 100%;
+}
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.list-group-item-check:hover + .list-group-item {
+  background-color: var(--bs-light);
+}
+.list-group-item-check:checked + .list-group-item {
+  color: #fff;
+  background-color: var(--bs-blue);
+}
+.list-group-item-check[disabled] + .list-group-item,
+.list-group-item-check:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+
+.list-group-radio .list-group-item {
+  cursor: pointer;
+}
+.list-group-radio .form-check-input {
+  z-index: 2;
+  margin-top: -.5em;
+}
+.list-group-radio .list-group-item:hover,
+.list-group-radio .list-group-item:focus {
+  background-color: var(--bs-light);
+}
+
+.list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: var(--bs-body);
+  border-color: var(--bs-blue);
+  box-shadow: 0 0 0 2px var(--bs-blue);
+}
+.list-group-radio .form-check-input[disabled] + .list-group-item,
+.list-group-radio .form-check-input:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+}
+#offcanvasNavbar2 .offcanvas-body{
+  height: 70px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a{
+  align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover{
+  color: var(--color-light-golden);
+  background-color: var(--color-blue);
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover ~ ul, #offcanvasNavbar2 .offcanvas-body ul li ul:hover, #offcanvasNavbar2 .offcanvas-body ul li ul:focus{
+  display: block;
+  background: white;
+  border-radius: 0;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a.active{
+  border-bottom: 2px solid var(--color-blue);
+}
+  </style>
+
+<style>
+  .zoom {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'KantumruyPro-Bold';
+    font-weight: bold;
+  }
+  @media (max-width: 991.98px){
+        #offcanvasNavbar2{
+          background-color: var(--color-blue);
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-header{
+          color: white;
+          border-bottom: 1px solid var(--color-light-golden);
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a{
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a.active, #offcanvasNavbar2 .offcanvas-body ul li a:active{
+          color: var(--color-light-golden);
+          background-color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li ul li a{
+          color: var(--color-blue);
+        }
+      }
+  </style>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/navbar.css" rel="stylesheet">
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarsTop" aria-label="Offcanvas navbar large" style="font-size: 90%;">
+            <div class="container">
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar1" aria-labelledby="offcanvasNavbar1Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar1Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> (097) 987-3530</a>    
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ភាសា
+                      </a>
+                      <ul class="dropdown-menu" style="z-index: 1021;">
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/cambodia.png" width="20px" alt=""> ខ្មែរ</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/united-kingdom.png" width="20px" alt=""> English</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/china.png" width="20px" alt=""> Chinese</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        
+          <nav class="navbar navbar-expand-lg bg-white sticky-top p-0" aria-label="Offcanvas navbar large">
+            <div class="container">
+              <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="height: 70px;">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="products.html">ទិញ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ជួល</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ខុនដូ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">បុរី</a>
+                    </li>                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">គម្រោងថ្មីៗ</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                      </a> -->
+                      <a class="nav-link dropdown-toggle" href="#">ផ្សេងៗ</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>                    
+                    <li class="nav-item">
+                      <a class="nav-link active" href="aboutUs.html">អំពី​ពួក​យើង</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+
+          <div class="py-5 bg-light"></div>
+    
+<main>
+
+    <div class="container mt-5">
+
+        <!-- Three columns of text below the carousel -->
+        <div class="row">
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    
+            <h2 class="fw-normal">Heading</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    
+            <h2 class="fw-normal">Heading</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+          <div class="col-lg-4">
+            <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+    
+            <h2 class="fw-normal">Heading</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+          </div><!-- /.col-lg-4 -->
+        </div><!-- /.row -->
+    
+    
+        <!-- START THE FEATURETTES -->
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 align-self-center">
+            <h2 class="featurette-heading fw-normal lh-1">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+            <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+          </div>
+          <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 order-md-2 align-self-center">
+            <h2 class="featurette-heading fw-normal lh-1">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+            <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+          </div>
+          <div class="col-md-5 order-md-1">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <div class="row featurette">
+          <div class="col-md-7 align-self-center">
+            <h2 class="featurette-heading fw-normal lh-1">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+            <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+          </div>
+          <div class="col-md-5">
+            <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+    
+          </div>
+        </div>
+    
+        <hr class="featurette-divider">
+    
+        <!-- /END THE FEATURETTES -->
+    
+      </div>
+    
+</main>
+
+<div class="py-5 bg-light"></div>
+
+<footer class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt="">
+        <small class="d-block mb-3 text-muted"></small>
+        <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <br>
+        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+    <script src="assets/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

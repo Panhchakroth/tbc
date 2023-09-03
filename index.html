@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Navbar Template · Bootstrap v5.2</title>
+
+    <link rel="icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="assets/bootstrap-5.2.3-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        :root{
+            --color-yellow: #fbdb02;
+            --color-blue: #1d1d5c;
+            --color-red: #e64850;
+            --color-light-golden: goldenrod;
+        }
+        @font-face{
+          font-family: KantumruyPro-Regular;
+          src: url(assets/fonts/static/KantumruyPro-Regular.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Bold;
+          src: url(assets/fonts/static/KantumruyPro-Bold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-SemiBold;
+          src: url(assets/fonts/static/KantumruyPro-SemiBold.ttf);
+        }
+        @font-face{
+          font-family: KantumruyPro-Light;
+          src: url(assets/fonts/static/KantumruyPro-Light.ttf);
+        }
+        body{
+            font-family: 'KantumruyPro-Regular';
+            color: var(--color-blue);
+        }
+        b, th, .fw-bold{
+          font-family: 'KantumruyPro-Bold';
+        }
+        .bg-color-blue{
+            background-color: var(--color-blue);
+            color: white;
+        }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+
+      .b-example-divider {
+        height: 3rem;
+        background-color: rgba(0, 0, 0, .1);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+      }
+
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      @media (max-width: 991.98px){
+        .navbarsTop {
+            display: none;
+        }
+      }
+    </style>
+
+<style>
+    .carousel-caption{
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 10px 30px;
+    }
+
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+  </style>
+
+  <style>
+.form-check-input:checked + .form-checked-content {
+  opacity: .5;
+}
+
+.form-check-input-placeholder {
+  border-style: dashed;
+}
+[contenteditable]:focus {
+  outline: 0;
+}
+
+.list-group-checkable .list-group-item {
+  cursor: pointer;
+  width: 100%;
+}
+.list-group-item-check {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+.list-group-item-check:hover + .list-group-item {
+  background-color: var(--bs-light);
+}
+.list-group-item-check:checked + .list-group-item {
+  color: #fff;
+  background-color: var(--bs-blue);
+}
+.list-group-item-check[disabled] + .list-group-item,
+.list-group-item-check:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+
+.list-group-radio .list-group-item {
+  cursor: pointer;
+}
+.list-group-radio .form-check-input {
+  z-index: 2;
+  margin-top: -.5em;
+}
+.list-group-radio .list-group-item:hover,
+.list-group-radio .list-group-item:focus {
+  background-color: var(--bs-light);
+}
+
+.list-group-radio .form-check-input:checked + .list-group-item {
+  background-color: var(--bs-body);
+  border-color: var(--bs-blue);
+  box-shadow: 0 0 0 2px var(--bs-blue);
+}
+.list-group-radio .form-check-input[disabled] + .list-group-item,
+.list-group-radio .form-check-input:disabled + .list-group-item {
+  pointer-events: none;
+  filter: none;
+  opacity: .5;
+}
+.list-group-item:last-child {
+    border-bottom-right-radius: unset;
+    border-bottom-left-radius: unset;
+}
+#offcanvasNavbar2 .offcanvas-body{
+  height: 70px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a{
+  align-items: center;
+    display: flex;
+    height: 100%;
+    padding: 10px;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover{
+  color: var(--color-light-golden);
+  background-color: var(--color-blue);
+}
+#offcanvasNavbar2 .offcanvas-body ul li a:hover ~ ul, #offcanvasNavbar2 .offcanvas-body ul li ul:hover, #offcanvasNavbar2 .offcanvas-body ul li ul:focus{
+  display: block;
+  background: white;
+  border-radius: 0;
+}
+#offcanvasNavbar2 .offcanvas-body ul li a.active{
+  border-bottom: 2px solid var(--color-blue);
+}
+  </style>
+
+<style>
+  .zoom {
+    transition: transform .2s; /* Animation */
+    margin: 0 auto;
+  }
+  .zoom:hover {
+    transform: scale(1.2); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family: 'KantumruyPro-Bold';
+    font-weight: bold;
+  }
+  .mobile-device{
+    display: none;
+  }
+  @media (max-width: 991.98px){
+        #offcanvasNavbar2{
+          background-color: var(--color-blue);
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-header{
+          color: white;
+          border-bottom: 1px solid var(--color-light-golden);
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a{
+          color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li a.active, #offcanvasNavbar2 .offcanvas-body ul li a:active{
+          color: var(--color-light-golden);
+          background-color: white;
+        }
+        #offcanvasNavbar2 .offcanvas-body ul li ul li a{
+          color: var(--color-blue);
+        }
+        .desktop-device{
+          display: none;
+        }
+        .mobile-device{
+          display: block;
+        }
+      }
+  </style>
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/navbar.css" rel="stylesheet">
+  </head>
+  <body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbarsTop" aria-label="Offcanvas navbar large" style="font-size: 90%;">
+            <div class="container">
+              <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar1" aria-labelledby="offcanvasNavbar1Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar1Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"><i class="fa-solid fa-phone"></i> (097) 987-3530</a>    
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        ភាសា
+                      </a>
+                      <ul class="dropdown-menu" style="z-index: 1021;">
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/cambodia.png" width="20px" alt=""> ខ្មែរ</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/united-kingdom.png" width="20px" alt=""> English</a></li>
+                        <li><a class="dropdown-item" href="#"><img src="assets/images/flat/china.png" width="20px" alt=""> Chinese</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+        
+          <nav class="navbar navbar-expand-lg bg-white sticky-top p-0" aria-label="Offcanvas navbar large">
+            <div class="container">
+              <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt=""></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
+                <div class="offcanvas-header">
+                  <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body" style="height: 70px;">
+                  <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item">
+                      <a class="nav-link" aria-current="page" href="products.html">ទិញ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ជួល</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">ខុនដូ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="products.html">បុរី</a>
+                    </li>                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#">គម្រោងថ្មីៗ</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                          </ul>
+                      </li>
+                    <li class="nav-item dropdown">
+                      <!-- <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Dropdown link
+                      </a> -->
+                      <a class="nav-link dropdown-toggle" href="#">ផ្សេងៗ</a>
+                      <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li>
+                          <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                      </ul>
+                    </li>                    
+                    <li class="nav-item">
+                      <a class="nav-link" href="aboutUs.html">អំពី​ពួក​យើង</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </nav>
+
+    
+<main>
+
+  <div class="position-relative overflow-hidden text-center bg-light" style="background-image: url('assets/images/banner3.jpeg'); 
+  height: 80vh;  
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;">
+
+<!-- background-attachment: fixed; -->
+
+    <div class="col-md-8 p-lg-7 mx-auto my-5 mx-5 h-100" style="display: flex;
+          justify-content: center;
+          align-items: center;
+          text-align: center;">
+          <div class="p5 desktop-device" style="background-color: rgba(0, 0, 0, 0.6); color: white; padding: 20px 50px;width: 750px;">
+              <h1 class="fw-light my-3">ស្វែងរកអចលនទ្រព្យថ្មីៗ</h1>
+
+              <div>
+                <div class="d-flex list-group list-group-checkable border-0 w-auto" style="flex-direction: unset;">
+                  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked>
+                    <label class="list-group-item py-2" for="listGroupCheckableRadios1">
+                      ទិញរំលោះ
+                    </label>
+                  
+                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
+                    <label class="list-group-item py-2" for="listGroupCheckableRadios2">
+                      ទិញដាច់
+                    </label>
+
+                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios3" value="">
+                    <label class="list-group-item py-2" for="listGroupCheckableRadios3">
+                      ជួល
+                    </label>
+              </div>
+              </div>
+              <div class="mt-2">
+                <div class="input-group mb-3">
+                    <select class="form-select rounded-0" aria-label="Default select example">
+                        <option selected>ជ្រើសរើស​ អចលនទ្រព្យ</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>ជ្រើសរើស​ តម្លៃ</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected>ជ្រើសរើស​ ទីតាំង</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    <button type="button" class="btn btn-primary rounded-0" onclick="window.location.href = 'products.html'">ស្វែងរក</button>
+                  </div>
+              </div>
+          </div>  
+    </div>
+
+    
+    <div class="product-device shadow-sm d-none d-md-block"></div>
+    <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>
+  </div>
+
+  <div class="mobile-device">
+    <div class="py-3 bg-light">
+      <div class="container pt-3">
+          <div class="p5 text-center m-auto" style="max-width: 750px;">
+              <h1 class="fw-light my-3">ស្វែងរកអចលនទ្រព្យថ្មីៗ</h1>
+  
+              <div>
+                <div class="d-flex list-group list-group-checkable border-0 w-auto" style="flex-direction: unset;">
+                  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadiosMobile" id="listGroupCheckableRadiosMobile1" value="" checked="">
+                    <label class="list-group-item py-2" for="listGroupCheckableRadiosMobile1">
+                      ទិញរំលោះ
+                    </label>
+                  
+                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadiosMobile" id="listGroupCheckableRadiosMobile2" value="">
+                    <label class="list-group-item py-2" for="listGroupCheckableRadiosMobile2">
+                      ទិញដាច់
+                    </label>
+  
+                    <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadiosMobile" id="listGroupCheckableRadiosMobile3" value="">
+                    <label class="list-group-item py-2" for="listGroupCheckableRadiosMobile3">
+                      ជួល
+                    </label>
+              </div>
+              </div>
+              <div class="mt-2">
+                <div class="input-group mb-3">
+                    <select class="form-select rounded-0" aria-label="Default select example">
+                        <option selected="">ជ្រើសរើស&ZeroWidthSpace; អចលនទ្រព្យ</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected="">ជ្រើសរើស&ZeroWidthSpace; តម្លៃ</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                      <select class="form-select" aria-label="Default select example">
+                        <option selected="">ជ្រើសរើស&ZeroWidthSpace; ទីតាំង</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                    <button type="button" class="btn btn-primary rounded-0" onclick="window.location.href = 'products.html'">ស្វែងរក</button>
+                  </div>
+              </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+
+  <section class="text-center container mt-5" > 
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">ស្វែងយល់អំពីពួកយើង</h1>
+        <p class="lead text-muted">
+          ពួកយើងដឹងថា មូលហេតុដែលលោកអ្នកជ្រើសរើសយកការរស់នៅ ប្រភេទផ្ទះវីឡាទោល គឺដោយសារតែទំហំដីធំ ទីធ្លាទូលាយ ហើយមានសួនច្បារបៃតងលក្ខណៈឯកជន។ ការរស់នៅផ្សារភ្ជាប់នឹងធម្មជាតិបែបនេះ ធ្វើឱ្យជីវិតមានភាពស្រស់ស្រាយ ល្អទាំងសុខភាពផ្លូវកាយ និងផ្លូវចិត្ត សម្រាប់គ្រួសារលោកអ្នក។ 
+        </p>
+        <p>
+          <a href="#" class="btn btn-primary my-2"><i class="fa-brands fa-telegram"></i>​ ទំនាក់ទំនងផ្នែកលក់</a>
+          <a href="#" class="btn btn-success my-2"><i class="fa-brands fa-facebook"></i> ស្វែងរកយើងលើហ្វេសប៊ុក</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-light">
+    <div class="container mb-lg-5 mb-3">
+        <div class="row">
+            <div class="col-md-12">
+                <h3>វីដេអូបង្រៀន</h3>
+                <iframe width="100%" height="500px" src="https://www.youtube.com/embed/TpGKNK5B81I?si=Ct8nYyW9f_fQ1Y4Q&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+                <!-- <iframe width="100%" height="500px" src="https://youtu.be/DLSpB5GjiaI?si=FKg4CzI7w_khsrif"></iframe> -->
+                <!-- <iframe width="100%" height="500px" src="https://youtu.be/YO1sjeUfXfE"></iframe> -->
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="py-5">
+    <div class="container my-lg-5 my-3">
+      <div class="row">
+          <div class="col-lg-4">
+              <h3>ទិញរំលោះ</h3>
+              <div class="row">
+                  <div class="col-12">
+                    <a href="product.html" style="text-decoration-line: none; color: unset;">
+                        <div class="card shadow-sm mb-2">
+                          <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-4">
+                                  <div class="overflow-hidden h-100">
+                                    <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                                  </div>                                 
+                                </div>
+                                <div class="col-8 py-2 pe-4">
+                                    <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                                </div>
+                            </div>                      
+                        </div>
+                      </div> 
+                    </a>                                      
+                  </div>
+                  <div class="col-12">
+                    <a href="product.html" style="text-decoration-line: none; color: unset;">
+                        <div class="card shadow-sm mb-2">
+                          <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-4">
+                                  <div class="overflow-hidden h-100">
+                                    <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                                  </div>                                 
+                                </div>
+                                <div class="col-8 py-2 pe-4">
+                                    <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                                </div>
+                            </div>                      
+                        </div>
+                      </div> 
+                    </a>                                      
+                  </div>
+                  <div class="col-12">
+                    <a href="product.html" style="text-decoration-line: none; color: unset;">
+                        <div class="card shadow-sm mb-2">
+                          <div class="card-body p-0">
+                            <div class="row">
+                                <div class="col-4">
+                                  <div class="overflow-hidden h-100">
+                                    <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                                  </div>                                 
+                                </div>
+                                <div class="col-8 py-2 pe-4">
+                                    <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                                </div>
+                            </div>                      
+                        </div>
+                      </div> 
+                    </a>                                      
+                  </div>
+              </div>
+              <div class="text-center"><a href="products.html" class="btn btn-primary">មើលច្រើនទៀត</a></div>
+          </div>
+          <div class="col-lg-4">
+            <h3>ទិញដាច់</h3>
+            <div class="row">
+              <div class="col-12">
+                <a href="product.html" style="text-decoration-line: none; color: unset;">
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-4">
+                              <div class="overflow-hidden h-100">
+                                <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                              </div>                                 
+                            </div>
+                            <div class="col-8 py-2 pe-4">
+                                <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                            </div>
+                        </div>                      
+                    </div>
+                  </div> 
+                </a>                                      
+              </div>
+              <div class="col-12">
+                <a href="product.html" style="text-decoration-line: none; color: unset;">
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-4">
+                              <div class="overflow-hidden h-100">
+                                <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                              </div>                                 
+                            </div>
+                            <div class="col-8 py-2 pe-4">
+                                <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                            </div>
+                        </div>                      
+                    </div>
+                  </div> 
+                </a>                                      
+              </div>
+              <div class="col-12">
+                <a href="product.html" style="text-decoration-line: none; color: unset;">
+                    <div class="card shadow-sm mb-2">
+                      <div class="card-body p-0">
+                        <div class="row">
+                            <div class="col-4">
+                              <div class="overflow-hidden h-100">
+                                <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                              </div>                                 
+                            </div>
+                            <div class="col-8 py-2 pe-4">
+                                <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                            </div>
+                        </div>                      
+                    </div>
+                  </div> 
+                </a>                                      
+              </div>
+          </div>
+              <div class="text-center"><a href="products.html" class="btn btn-primary">មើលច្រើនទៀត</a></div>
+        </div>
+        <div class="col-lg-4">
+          <h3>ជួល</h3>
+          <div class="row">
+            <div class="col-12">
+              <a href="product.html" style="text-decoration-line: none; color: unset;">
+                  <div class="card shadow-sm mb-2">
+                    <div class="card-body p-0">
+                      <div class="row">
+                          <div class="col-4">
+                            <div class="overflow-hidden h-100">
+                              <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                            </div>                                 
+                          </div>
+                          <div class="col-8 py-2 pe-4">
+                              <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                          </div>
+                      </div>                      
+                  </div>
+                </div> 
+              </a>                                      
+            </div>
+            <div class="col-12">
+              <a href="product.html" style="text-decoration-line: none; color: unset;">
+                  <div class="card shadow-sm mb-2">
+                    <div class="card-body p-0">
+                      <div class="row">
+                          <div class="col-4">
+                            <div class="overflow-hidden h-100">
+                              <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                            </div>                                 
+                          </div>
+                          <div class="col-8 py-2 pe-4">
+                              <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                          </div>
+                      </div>                      
+                  </div>
+                </div> 
+              </a>                                      
+            </div>
+            <div class="col-12">
+              <a href="product.html" style="text-decoration-line: none; color: unset;">
+                  <div class="card shadow-sm mb-2">
+                    <div class="card-body p-0">
+                      <div class="row">
+                          <div class="col-4">
+                            <div class="overflow-hidden h-100">
+                              <img src="assets/images/image1.jpeg" class="img-fluid h-100 zoom" alt="">
+                            </div>                                 
+                          </div>
+                          <div class="col-8 py-2 pe-4">
+                              <p class="card-text">រកឯណាបានទៀត? វីឡាទោលប្រណិត ដែលជាប្រភេទ ឃ្វីនវីឡា ហើយបង់តែប៉ុណ្ណឹង!</p>
+                          </div>
+                      </div>                      
+                  </div>
+                </div> 
+              </a>                                      
+            </div>
+        </div>
+            <div class="text-center"><a href="products.html" class="btn btn-primary">មើលច្រើនទៀត</a></div>
+      </div>
+
+      </div>
+
+  </div>
+  </div>
+
+  
+</main>
+
+<div class="py-5 bg-light"></div>
+
+<footer class="container py-5">
+    <div class="row">
+      <div class="col-12 col-md">
+        <img src="assets/images/logo.png" class="img-fluid" style="width: 60px;" alt="">
+        <small class="d-block mb-3 text-muted"></small>
+        <a class="nav-link" aria-current="page" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+        <br>
+        <a class="nav-link" href="#"><i class="fa-brands fa-facebook"></i> ហ្វេសប៊ុក</a>
+
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Business</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Education</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Government</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Gaming</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+          <li><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+    <script src="assets/bootstrap-5.2.3-dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
