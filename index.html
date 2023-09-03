@@ -239,6 +239,13 @@
   .mobile-device{
     display: none;
   }
+  .banner{
+    background-image: url('assets/images/banner3.jpeg'); 
+    height: 80vh;  
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
   @media (max-width: 991.98px){
         #offcanvasNavbar2{
           background-color: var(--color-blue);
@@ -263,6 +270,14 @@
         }
         .mobile-device{
           display: block;
+        }
+        .banner{
+          height: 60vh;
+        }
+      }
+      @media (max-width: 767.98px) {
+        .banner{
+          height: 45vh;
         }
       }
   </style>
@@ -367,11 +382,7 @@
     
 <main>
 
-  <div class="position-relative overflow-hidden text-center bg-light" style="background-image: url('assets/images/banner3.jpeg'); 
-  height: 80vh;  
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;">
+  <div class="position-relative overflow-hidden text-center bg-light banner" style="">
 
 <!-- background-attachment: fixed; -->
 
